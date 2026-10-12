@@ -14,6 +14,7 @@
 | `assets/README.md` | 620 | 4f66dca1aa5c7e7906bbd431bdd55593d1c2d9c2835ea77167fd22c92394bb69 |
 | `assets/social-preview.png` | 65278 | 938ff673f1713d7ba57b6fe9a21e654912184aa750bd35bcce0f3297173b8157 |
 | `assets/social-preview.svg` | 1331 | c9eb94e8c5227b8db48594fb4a9fdeddf1fa2c3829abe100dbcf913773edc57e |
+| `assets/video-workflow.svg` | 3583 | 8deaa65c8329ceca331c16ff5b08ac13b0f84c48282657fc495172a053dc4fed |
 | `dataset/README.md` | 1249 | ef824345e08f918aec8fff85917f88dc436e0c00b71f2a566bf3ae742e747caf |
 | `docs/EVALUATION.md` | 903 | 3416d92ebfe77b94d9963f4d54ef1bc71f0c48b4baf736f5d37223768636ce58 |
 | `docs/release_assets.md` | 1538 | 63efdbc581ca1d7a1c1e2abb4d9718a9a5dac7a3d50e2dbfbdf6b97a5c86f284 |
@@ -27,7 +28,7 @@
 | `logs/README.md` | 747 | ba1bbe4cea984e87b0f6526714e2ea0f4736d436e5aa1271af8668ef662dfdb0 |
 | `models/README.md` | 1596 | 99266c8a9fce4f84502bdcd35ffb820beb1e3bc2b8ea25997c3a7301ba2373fa |
 | `PROJECT_FILES_MANIFEST.txt` | 1538 | 0d915827700eed4ab87d82433814929191dc5d4d9fca3149925788ed6979e6df |
-| `README.md` | 4536 | 80cb31585428b27dc70992f09615de0ca9420e498a607ef84eb9e8d3780dd9e6 |
+| `README.md` | 4542 | 05800ea835675dd3cbf89d3cdfe90362b565605fc4667faf5d52f82cb0949229 |
 | `requirements_tf210.txt` | 448 | 242fd22ff3f2195d360dd03fb1677b927c797623f12acabfb80c0823191d8645 |
 | `results/predict_examples.txt` | 757 | c53216b8dd29783de4286beabf2ae1798b24510e3d0e5544197dc2851bbf72ea |
 | `results/train_result.txt` | 643 | 81ff1bcc89ece04361e29e1be9224a33148609b334a292c5a8f243ea69fae7f7 |

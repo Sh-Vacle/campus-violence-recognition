@@ -15,7 +15,7 @@
 
 ## 🎞️ 视频与模型流程
 
-<p align="center"><img src="assets/pipeline.svg" width="420" alt="campus-violence-recognition业务流程图"></p>
+<p align="center"><img src="assets/video-workflow.svg" width="420" alt="campus-violence-recognition业务流程图"></p>
 
 模型分类头：`MobileNetV2 → GlobalAveragePooling2D → Dense(512, ReLU) → Dropout(0.5) → BatchNormalization → Dense(1, Sigmoid)`。先冻结骨干训练，再可选解冻最后20层微调，BatchNorm保持冻结。实现入口：[训练](src/04_train_model.py)、[视频推理](src/05_predict_video.py)、[FFmpeg封装](src/ffmpeg_utils.py)。
 
