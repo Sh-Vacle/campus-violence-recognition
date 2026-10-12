@@ -68,8 +68,8 @@ logs/
   TensorBoard 日志目录占位。
 
 [5. 项目文档]
-docs/OrangePi_KunPeng_Pro_用户手册_v0.4.pdf
-  OrangePi KunPeng Pro 用户手册。
+docs/SOURCES_AND_PERMISSIONS.md
+  厂商资料原始链接；不在候选中重新分发第三方手册。
 
 docs/release_assets.md
   GitHub Releases 模型资产说明。

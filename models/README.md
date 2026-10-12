@@ -7,7 +7,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Keras-.h5-FF6F00" alt="Keras model">
   <img src="https://img.shields.io/badge/TFLite-FP16-2E8B57" alt="TFLite FP16">
-  <img src="https://img.shields.io/badge/Release-v1.0.0-181717?logo=github" alt="GitHub Release">
+  <img src="https://img.shields.io/badge/Release-v1.0.1-181717?logo=github" alt="GitHub Release">
   <img src="https://img.shields.io/badge/Git-Ignored-181717?logo=git" alt="Git Ignored">
 </p>
 
@@ -39,7 +39,7 @@ models/
 模型文件通过 GitHub Releases 分发：
 
 ```text
-campus_violence_models_v1.0.zip
+campus_violence_models_v1.0.1.zip
 ```
 
 解压后的目录结构：
@@ -50,3 +50,6 @@ models/
 ├─ best_model_fp16.tflite
 └─ best_model_frozen.h5
 ```
+
+
+本批只核对Release元数据，未下载模型包、未验算包内模型hash或测试TFLite。v1.0.0也仍存在；发布模型需独立确认训练数据/模型许可。

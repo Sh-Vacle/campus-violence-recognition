@@ -5,7 +5,7 @@
 <h1 align="center">📦 GitHub Releases 模型资产说明</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Release-v1.0.0-181717?logo=github" alt="Release v1.0.0">
+  <img src="https://img.shields.io/badge/Release-v1.0.1-181717?logo=github" alt="Release v1.0.0">
   <img src="https://img.shields.io/badge/Keras-.h5-FF6F00" alt="Keras model">
   <img src="https://img.shields.io/badge/TFLite-FP16-2E8B57" alt="TFLite FP16">
 </p>
@@ -15,9 +15,9 @@
 ## 🏷️ Release 信息
 
 ```text
-Tag: v1.0.0
-Title: Campus Violence Recognition Models v1.0
-Asset: campus_violence_models_v1.0.zip
+Tag: v1.0.1
+Title: 以现有Release页面为准
+Asset: campus_violence_models_v1.0.1.zip
 ```
 
 ## 📁 资产包结构
@@ -50,3 +50,6 @@ models/best_model_frozen.h5
 ```powershell
 python src/05_predict_video.py --video ".\dataset\Violence\V_100.mp4" --model ".\models\best_model_finetuned.h5" --fps 1
 ```
+
+
+本批只核对Release元数据，未下载模型包、未验算包内模型hash或测试TFLite。v1.0.0也仍存在；发布模型需独立确认训练数据/模型许可。

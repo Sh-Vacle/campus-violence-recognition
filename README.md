@@ -266,13 +266,14 @@ models/best_model_finetuned.h5
 
 ## 🚀 预训练模型
 
-训练后的模型文件不提交到 Git 仓库，通过 **GitHub Releases** 作为 Release Asset 分发。
+现有远程模型资产通过 [GitHub Releases](https://github.com/Sh-Vacle/campus-violence-recognition/releases) 列出。当前有 v1.0.1 和 v1.0.0；两个资产包均为 42,301,599 字节。本次只核对公开元数据，没有下载或验证包内容，模型/训练数据的再分发权限仍待核对。
 
 Release 信息：
 
 ```text
-Tag: v1.0.0
-Title: Campus Violence Recognition Models v1.0
+Current listed tag: v1.0.1
+Asset: campus_violence_models_v1.0.1.zip
+Older tag: v1.0.0
 Asset: campus_violence_models_v1.0.zip
 ```
 
@@ -316,7 +317,7 @@ python src/05_predict_video.py --video ".\dataset\NonViolence\NV_100.mp4" --mode
 
 ---
 
-## 📊 实验结果
+## 📊 历史帧级验证结果
 
 验证集规模：
 
@@ -325,7 +326,7 @@ Train images: 8418
 Validation images: 2103
 ```
 
-最终评估指标：
+历史本地帧级验证指标（本次整理未重跑）：
 
 ```text
 Accuracy: 0.9163
@@ -354,6 +355,14 @@ NV_1000.mp4   avg_prob=0.0694    prediction=NonViolence
 
 ---
 
+## 评估单位与已实现范围
+
+8,418/2,103是图像帧数量，不是视频数量。`src/04_train_model.py`直接对抽帧目录使用ImageDataGenerator的validation_split=0.2，未见按视频ID/拍摄场景分组的独立测试集；同一视频相关帧可能跨划分。上述结果不能当成独立视频测试、真实校园场景泛化率或平台正式评测。
+
+视频预测是帧概率平均，不是时序动作网络。代码实现了FFmpeg预处理、帧分类、视频概率聚合及FP16 TFLite导出；没有验证OrangePi板端推理性能，也没有找到PPT中的四路1080P、知识蒸馏、SQLite事件库、三级预警或72小时连续运行的对应实现/验收。方案素材不进入完成成果清单。
+
+更多证据边界见 [评估说明](docs/EVALUATION.md)，第三方资料与共同贡献见 [来源说明](docs/SOURCES_AND_PERMISSIONS.md)。
+
 ## ⚠️ 模型限制与使用声明
 
 本项目基于视频抽帧后的图像帧进行 Violence / NonViolence 二分类识别，视频级预测结果由帧级概率聚合得到。模型性能可能受到画面清晰度、摄像角度、动作发生时间、遮挡、场景差异和数据分布差异等因素影响。
@@ -374,12 +383,12 @@ logs/*
 models/*
 ```
 
-`dataset/`、`frames/`、`fixed_videos/`、`models/` 和 `logs/` 目录通过 `.gitkeep` 与 README 文件保留目录结构。
+`dataset/`、`frames/`、`fixed_videos/`、`models/` 和 `logs/` 在当前文件树中通过 README 保留结构；本次核查未见 `.gitkeep` 文件。
 
 ---
 
 ## 📄 License
 
-本项目代码基于 MIT License 开源。详见 [LICENSE](LICENSE)。
+保留远程原有 [MIT LICENSE](LICENSE)，本次没有改变许可证或据此重新授权任何第三方内容。团队贡献、参考代码及模型/数据权利仍需项目拥有者核对。
 
 数据集和预训练模型文件不包含在 Git 仓库中，相关使用需遵守其各自来源和发布平台的许可要求。
