@@ -5,6 +5,8 @@
 | 文件 | 字节 | SHA256 |
 |---|---:|---|
 | `.gitignore` | 519 | 6bd96a57dfda889deabb36312a7495404f5be735baa9d51066c91b4af89568dd |
+| `assets/badges/ffmpeg.svg` | 411 | 64a92e00fb1c8c785b55a2fa6e0ffed68e637be4fd6cc5e05300ad50ed9af016 |
+| `assets/badges/mobilenet.svg` | 414 | 3ac669b1b45ef3aa74e7b3e48e925b0c063109e742393e232f3677a59b6444cf |
 | `assets/badges/tech-0.svg` | 402 | 2645d510c74aeb678727060d47b8cc50e3703a26a0feaa8393a6a1e01f66bf18 |
 | `assets/badges/tech-1.svg` | 420 | b42cad3c95d489cb1a5dd63706fa1ef895c9f3f0ed93ec8f576bdb443e8872c5 |
 | `assets/badges/tech-2.svg` | 445 | 709191d5d8c2a076758feed4536907430206809760d7ecd353f1774bfa40e82f |
@@ -28,7 +30,7 @@
 | `logs/README.md` | 747 | ba1bbe4cea984e87b0f6526714e2ea0f4736d436e5aa1271af8668ef662dfdb0 |
 | `models/README.md` | 1596 | 99266c8a9fce4f84502bdcd35ffb820beb1e3bc2b8ea25997c3a7301ba2373fa |
 | `PROJECT_FILES_MANIFEST.txt` | 1538 | 0d915827700eed4ab87d82433814929191dc5d4d9fca3149925788ed6979e6df |
-| `README.md` | 4513 | 4f2d43fb3aa7acdc1cb237631c24471463a3815a019a3b909cffaa043cb62374 |
+| `README.md` | 3911 | 40dea47185a6922acdecb5a20cb3146b4d2673c3aa9b0793f1260b105c3acc0e |
 | `requirements_tf210.txt` | 448 | 242fd22ff3f2195d360dd03fb1677b927c797623f12acabfb80c0823191d8645 |
 | `results/predict_examples.txt` | 757 | c53216b8dd29783de4286beabf2ae1798b24510e3d0e5544197dc2851bbf72ea |
 | `results/train_result.txt` | 643 | 81ff1bcc89ece04361e29e1be9224a33148609b334a292c5a8f243ea69fae7f7 |

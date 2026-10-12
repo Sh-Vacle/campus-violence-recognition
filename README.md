@@ -1,53 +1,51 @@
-<p align="center"><img src="assets/logo.svg" width="184" alt="紫青视频取景框Logo"></p>
+<p align="center"><img src="assets/logo.svg" width="160" alt="🛡️ 校园暴力视频识别 Logo"></p>
 
 <h1 align="center">🛡️ 校园暴力视频识别</h1>
-<p align="center">Campus Violence Recognition · MobileNetV2 帧分类与视频概率聚合</p>
 
-<p align="center"><img src="assets/badges/tech-0.svg" alt="Python 3.9"> <img src="assets/badges/tech-1.svg" alt="TensorFlow 2.10.1"> <img src="assets/badges/tech-2.svg" alt="MobileNetV2迁移学习"> <img src="assets/badges/tech-3.svg" alt="FFmpeg视频处理"></p>
+<p align="center">MobileNetV2 帧分类与视频概率聚合</p>
 
-使用 MobileNetV2 对 Violence / NonViolence 图像帧做二分类，再将单视频的帧概率取均值生成预测。工程覆盖 FFmpeg 预处理、Keras 训练/评估、视频预测和 FP16 TFLite 导出。
+<p align="center"><img src="assets/badges/tech-0.svg" alt="Python 3.9"> <img src="assets/badges/tech-1.svg" alt="TensorFlow 2.10.1"> <img src="assets/badges/mobilenet.svg" alt="MobileNetV2迁移学习"> <img src="assets/badges/ffmpeg.svg" alt="FFmpeg视频抽帧"></p>
 
-## 🧭 导航
+使用FFmpeg抽取视频帧，以MobileNetV2做Violence / NonViolence二分类，再对单视频的帧概率取均值生成预测。包含Keras训练、评估、视频推理和FP16 TFLite导出脚本。
 
-[🎞️ 视频与模型流程](#️-视频与模型流程) · [📊 帧级评估](#-历史帧级验证与边界)<br>
-[⚙️ 运行](#️-使用与项目结构) · [📦 模型与来源](#-模型来源与验证状态)
-
-[运行](docs/RUNNING.md) · [评估](docs/EVALUATION.md) · [贡献](docs/SOURCES_AND_PERMISSIONS.md) · [验证](VERIFICATION.md)
+[代码](src) · [运行说明](docs/RUNNING.md) · [评估口径](docs/EVALUATION.md) · [来源与共同贡献](docs/SOURCES_AND_PERMISSIONS.md)
 
 ## 🎞️ 视频与模型流程
 
-<p align="center"><img src="assets/video-workflow.svg" width="420" alt="campus-violence-recognition业务流程图"></p>
+<p align="center"><img src="assets/video-workflow.svg" width="420" alt="训练与单视频推理流程"></p>
 
-模型分类头：`MobileNetV2 → GlobalAveragePooling2D → Dense(512, ReLU) → Dropout(0.5) → BatchNormalization → Dense(1, Sigmoid)`。先冻结骨干训练，再可选解冻最后20层微调，BatchNorm保持冻结。实现入口：[训练](src/04_train_model.py)、[视频推理](src/05_predict_video.py)、[FFmpeg封装](src/ffmpeg_utils.py)。
+分类头：`MobileNetV2 → GlobalAveragePooling2D → Dense(512, ReLU) → Dropout(0.5) → BatchNormalization → Dense(1, Sigmoid)`。先冻结骨干训练，再可选解冻最后20层微调，BatchNorm保持冻结。入口：[训练](src/04_train_model.py)、[视频推理](src/05_predict_video.py)、[FFmpeg封装](src/ffmpeg_utils.py)。
 
-TFLite 是导出格式，不等于已完成开发板部署。尚无四路1080P、知识蒸馏、SQLite告警、72小时连续运行的对应实现或验收证据，不纳入成果。
+## 📊 历史帧级验证
 
-## 📊 历史帧级验证与边界
-
-以下是保存记录中的**本地帧级验证**，本轮未重跑，不能作为视频级测试或竞赛成绩。训练8418帧、验证2103帧；代码在帧目录上做20%验证切分，未实现按视频来源隔离，可能包含同源视频帧。
+训练8418帧、验证2103帧。代码在帧目录上做20%验证切分，未按视频来源隔离，可能包含同源视频帧。以下是保存的本地帧级记录，不是视频级独立测试或竞赛成绩。
 
 | Accuracy | Precision | Recall | F1 | AUC |
 |---:|---:|---:|---:|---:|
 | 0.9163 | 0.9356 | 0.8994 | 0.9171 | 0.9653 |
 
-历史混淆矩阵 `[[953, 67], [109, 974]]`，类别顺序为 NonViolence、Violence。Accuracy/Precision/Recall/F1 已做算术核验；缺原始逐帧概率，AUC 未独立复算。历史输出见 [训练记录](results/train_result.txt)、[预测示例](results/predict_examples.txt)。个别示例预测不能证明视频测试集性能。
+混淆矩阵 `[[953, 67], [109, 974]]`，类别顺序为NonViolence、Violence。Accuracy/Precision/Recall/F1的算术一致；缺逐帧概率，AUC未独立复算。原记录见[训练输出](results/train_result.txt)和[预测示例](results/predict_examples.txt)。个别预测示例不能证明整个视频测试集的性能。
 
 ## ⚙️ 使用与项目结构
 
-环境由 [environment_tf210_py39.yml](environment_tf210_py39.yml)定义：Python3.9、TensorFlow2.10.1、Keras2.10.0及FFmpeg。完整数据布局、训练参数、模型位置与推理命令见[运行说明](docs/RUNNING.md)。例：
+[environment_tf210_py39.yml](environment_tf210_py39.yml)定义Python3.9、TensorFlow2.10.1、Keras2.10.0及FFmpeg环境。数据布局、训练参数和模型位置见[运行说明](docs/RUNNING.md)。单视频推理示例：
 
 ```powershell
 python src/05_predict_video.py --video "path/to/authorized-example.mp4" --model "models/best_model_finetuned.h5" --fps 1
 ```
 
-`src/` 中编号01–05的脚本对应重封装、抽帧、检查、训练、预测；`scripts/` 为 Windows 示例调用。`dataset/`、`frames/`、`fixed_videos/`、`logs/`、`models/` 只保留说明，数据和权重不进入当前 Git 文件树。
+`src/`中01–05脚本对应重封装、抽帧、检查、训练和预测；`scripts/`保存Windows示例。`dataset/`、`frames/`、`fixed_videos/`、`logs/`、`models/`只保留说明，数据与权重不在当前Git文件树中。
 
-## 📦 模型、来源与验证状态
+## 🛠️ 验证与限制
 
-[既有 Releases](https://github.com/Sh-Vacle/campus-violence-recognition/releases)包含历史模型资产；本轮只核对元数据，未下载、测试或重新上传模型，包内容与分发权仍需项目拥有者确认。数据历史来源记为 Kaggle Real Life Violence Situations Dataset；请自行确认合法使用范围。
+已核对源码、相对链接和历史指标；没有重新训练、加载TensorFlow模型、实测视频或执行TFLite。TFLite导出不等于开发板部署；PPT中的四路1080P、知识蒸馏、SQLite告警和72小时运行没有对应实现或验收证据。详细检查见[VERIFICATION.md](VERIFICATION.md)。
 
-现有代码 [MIT LICENSE](LICENSE) 保留，但不据此重新授权数据、模型、厂商材料或全部团队方案。历史方案涉及多位共同贡献者，见[来源说明](docs/SOURCES_AND_PERMISSIONS.md)，不描述为个人独立完成整个团队成果。开发与工程整理使用过 AI 辅助。
+项目用于学习与实验，预测需要人工复核，不用于自动处罚或身份判断。
 
-当前分支已停止跟踪 OrangePi 厂商手册，改用[厂商支持页](http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-kunpeng.html)；旧 Git 历史仍保留该文件。当前 Logo 与本地徽章是自行编写的 SVG。
+## 📦 模型与来源
 
-静态源码、链接和历史指标核对通过；本轮没有训练、TensorFlow模型加载、视频实测、TFLite执行或设备部署。项目用于学习与实验，预测需要人工复核，不能据此自动处罚或判断身份。[公开文件清单](PUBLIC_FILES_MANIFEST.md) · [排除清单](EXCLUDED_FILES.md)
+[既有Releases](https://github.com/Sh-Vacle/campus-violence-recognition/releases)保存历史模型资产，目前仅核对元数据，包内容与分发权仍需确认。数据来源记为Kaggle Real Life Violence Situations Dataset，其使用范围需单独核对。
+
+代码保留[MIT LICENSE](LICENSE)，不延伸授权数据、模型、厂商材料或全部团队方案。共同贡献与AI辅助开发说明见[来源记录](docs/SOURCES_AND_PERMISSIONS.md)。OrangePi手册已从当前分支停止跟踪，旧历史仍保留该文件；参考[厂商支持页](http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-kunpeng.html)。
+
+[公开文件清单](PUBLIC_FILES_MANIFEST.md) · [排除清单](EXCLUDED_FILES.md)
