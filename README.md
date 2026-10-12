@@ -16,17 +16,7 @@
 
 ## 技术流程
 
-```mermaid
-flowchart LR
-    A[合法取得的视频] --> B[FFmpeg重封装 / 抽帧]
-    B --> C[帧目录与类别检查]
-    C --> D[MobileNetV2迁移学习]
-    D --> E[帧级评估]
-    D --> F[Keras H5 / FP16 TFLite导出]
-    B --> G[单视频逐帧预测]
-    D --> G
-    G --> H[帧概率均值 / 视频标签]
-```
+<p align="center"><img src="assets/pipeline.svg" width="420" alt="campus-violence-recognition业务流程图"></p>
 
 模型分类头：`MobileNetV2 → GlobalAveragePooling2D → Dense(512, ReLU) → Dropout(0.5) → BatchNormalization → Dense(1, Sigmoid)`。先冻结骨干训练，再可选解冻最后20层微调，BatchNorm保持冻结。实现入口：[训练](src/04_train_model.py)、[视频推理](src/05_predict_video.py)、[FFmpeg封装](src/ffmpeg_utils.py)。
 
