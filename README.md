@@ -9,9 +9,10 @@
 
 ## 🧭 导航
 
-[🎞️ 视频与模型流程](#️-视频与模型流程) · [📊 帧级评估](#-历史帧级验证与边界) · [⚙️ 运行](#️-使用与项目结构) · [📦 模型与来源](#-模型来源与验证状态)
+[🎞️ 视频与模型流程](#️-视频与模型流程) · [📊 帧级评估](#-历史帧级验证与边界)<br>
+[⚙️ 运行](#️-使用与项目结构) · [📦 模型与来源](#-模型来源与验证状态)
 
-[完整运行说明](docs/RUNNING.md) · [评估口径](docs/EVALUATION.md) · [共同贡献](docs/SOURCES_AND_PERMISSIONS.md) · [实际验证](VERIFICATION.md)
+[运行](docs/RUNNING.md) · [评估](docs/EVALUATION.md) · [贡献](docs/SOURCES_AND_PERMISSIONS.md) · [验证](VERIFICATION.md)
 
 ## 🎞️ 视频与模型流程
 

@@ -28,7 +28,7 @@
 | `logs/README.md` | 747 | ba1bbe4cea984e87b0f6526714e2ea0f4736d436e5aa1271af8668ef662dfdb0 |
 | `models/README.md` | 1596 | 99266c8a9fce4f84502bdcd35ffb820beb1e3bc2b8ea25997c3a7301ba2373fa |
 | `PROJECT_FILES_MANIFEST.txt` | 1538 | 0d915827700eed4ab87d82433814929191dc5d4d9fca3149925788ed6979e6df |
-| `README.md` | 4542 | 05800ea835675dd3cbf89d3cdfe90362b565605fc4667faf5d52f82cb0949229 |
+| `README.md` | 4513 | 4f2d43fb3aa7acdc1cb237631c24471463a3815a019a3b909cffaa043cb62374 |
 | `requirements_tf210.txt` | 448 | 242fd22ff3f2195d360dd03fb1677b927c797623f12acabfb80c0823191d8645 |
 | `results/predict_examples.txt` | 757 | c53216b8dd29783de4286beabf2ae1798b24510e3d0e5544197dc2851bbf72ea |
 | `results/train_result.txt` | 643 | 81ff1bcc89ece04361e29e1be9224a33148609b334a292c5a8f243ea69fae7f7 |
