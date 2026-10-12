@@ -1,4 +1,4 @@
-<p align="center"><img src="assets/logo.svg" width="160" alt="🛡️ 校园暴力视频识别 Logo"></p>
+<p align="center"><a href="https://github.com/Sh-Vacle/campus-violence-recognition"><img src="assets/logo.svg" width="160" alt="🛡️ 校园暴力视频识别 Logo"></a></p>
 
 <h1 align="center">🛡️ 校园暴力视频识别</h1>
 

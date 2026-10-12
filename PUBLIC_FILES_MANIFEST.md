@@ -21,7 +21,7 @@
 | `docs/EVALUATION.md` | 903 | 3416d92ebfe77b94d9963f4d54ef1bc71f0c48b4baf736f5d37223768636ce58 |
 | `docs/release_assets.md` | 1538 | 63efdbc581ca1d7a1c1e2abb4d9718a9a5dac7a3d50e2dbfbdf6b97a5c86f284 |
 | `docs/RUNNING.md` | 3765 | 6ae87fb45b67a6eb247acf3a659474a8619ddb346caa03b3a7df73743c287c5f |
-| `docs/SOURCES_AND_PERMISSIONS.md` | 1359 | 871d868b3f31ea69445a37461e5bdc5d3522ca609384a4e3d9218ae04fb1aee0 |
+| `docs/SOURCES_AND_PERMISSIONS.md` | 1335 | 35ab2debbc58e409ed82cc000078ea02a28e85932a365bbfb043989f9f79eb5a |
 | `environment_tf210_py39.yml` | 355 | c21003748045d7b658c3bc311394797efced331f7af38777f43ce571d813c30b |
 | `EXCLUDED_FILES.md` | 531 | b7adc5c4f8948e6070fffebbffe6615b47581f22ca5fede3555008480042e592 |
 | `fixed_videos/README.md` | 978 | 2aebec923bedc637a7f4901852a6445ee0f69257af9211a243b05ade380f677b |
@@ -30,7 +30,7 @@
 | `logs/README.md` | 747 | ba1bbe4cea984e87b0f6526714e2ea0f4736d436e5aa1271af8668ef662dfdb0 |
 | `models/README.md` | 1596 | 99266c8a9fce4f84502bdcd35ffb820beb1e3bc2b8ea25997c3a7301ba2373fa |
 | `PROJECT_FILES_MANIFEST.txt` | 1538 | 0d915827700eed4ab87d82433814929191dc5d4d9fca3149925788ed6979e6df |
-| `README.md` | 3911 | 40dea47185a6922acdecb5a20cb3146b4d2673c3aa9b0793f1260b105c3acc0e |
+| `README.md` | 3981 | b77edf3c385a9b97eda14ba308efef07ea80377c2825ff317cd262ce7787e37a |
 | `requirements_tf210.txt` | 448 | 242fd22ff3f2195d360dd03fb1677b927c797623f12acabfb80c0823191d8645 |
 | `results/predict_examples.txt` | 757 | c53216b8dd29783de4286beabf2ae1798b24510e3d0e5544197dc2851bbf72ea |
 | `results/train_result.txt` | 643 | 81ff1bcc89ece04361e29e1be9224a33148609b334a292c5a8f243ea69fae7f7 |
